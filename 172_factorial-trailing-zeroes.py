@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2018/12/17 16:38
+# @Author  : zyk
+
+'''
+给定一个整数 n，返回 n! 结果尾数中零的数量。
+
+示例 1:
+
+输入: 3
+输出: 0
+解释: 3! = 6, 尾数中没有零。
+示例 2:
+
+输入: 5
+输出: 1
+解释: 5! = 120, 尾数中有 1 个零.
+说明: 你算法的时间复杂度应为 O(log n) 。
+'''
+
+class Solution:
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        count = 0
+        k = 1
+        while 5**k <= n:
+            count += n // (5**k)
+            k += 1
+        return count
+print(Solution().trailingZeroes(31))
